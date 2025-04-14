@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="artist_template.xslt"?>
+<CD nom="BTS WORLD TOUR ALGERIA">
+    <!-- Les artistes -->
+    <artiste no="a01" nom="RM" ville="Seoul">
+        <site url="http://www.BTS-RM.dz"/>
+        <biographie>Leader of BTS, blending Korean hip-hop with Algerian Malouf</biographie>
+        <img src="images/RM.jpg" alt="BTS RM"/>
+    </artiste>
+    <artiste no="a03" nom="Jin" ville="Busan">
+        <site url="http://www.BTS-Jin.dz"/>
+        <biographie>Vocalist with golden voice, fusing trot with Chaabi rhythms</biographie>
+        <img src="images/Jin.jpg" alt="BTS Jin"/>
+    </artiste>
+    <artiste no="a02" nom="SUGA" ville="Daegu">
+        <site url="http://www.BTS-Suga.dz"/>
+        <biographie>Producer creating beats with Andalusian guitar samples</biographie>
+        <img src="images/SUGA.jpg" alt="BTS SUGA"/>
+    </artiste>
+    <artiste no="a04" nom="j-hope" ville="Gwangju">
+        <site url="http://www.BTS-jhope.dz"/>
+        <biographie>Dance king incorporating Kabyle folk movements</biographie>
+        <img src="images/jhope.jpg" alt="BTS j-hope"/>
+    </artiste>
+    <artiste no="a05" nom="Jimin" ville="Jeonju">
+        <site url="http://www.BTS-Jimin.dz"/>
+        <biographie>Contemporary dancer with Rai music influences</biographie>
+        <img src="images/Jimin.jpg" alt="BTS Jimin"/>
+    </artiste>
+    <artiste no="a06" nom="V" ville="Daejeon">
+        <site url="http://www.BTS-V.dz"/>
+        <biographie>Baritone voice meets Saharan desert blues</biographie>
+        <img src="images/V.jpg" alt="BTS V"/>
+    </artiste>
+    <artiste no="a07" nom="Jung Kook" ville="Ulsan">
+        <site url="http://www.BTS-JK.dz"/>
+        <biographie>Golden Maknae mastering Gnawa percussion</biographie>
+        <img src="images/JK.jpg" alt="BTS Jung Kook"/>
+    </artiste>
+
+    <!-- Les Albums -->
+    <album annee="2013" reference="firg">
+        <titre>Debut: Algerian Roots</titre>
+        <ref-artiste ref="a01"/>
+        <chansons>
+            <chanson>No More Constantine Dream</chanson>
+            <chanson>We Are Bulletproof Chaabi</chanson>            
+        </chansons>
+    </album>
+    <album annee="2016" reference="hach2">
+        <titre>Wings Over Algiers</titre>
+        <ref-artiste ref="a03"/>
+        <chansons>
+            <chanson>Blood Sweat  Mint Tea</chanson>
+            <chanson>Lie (El Ghorba)</chanson>
+        </chansons>
+    </album>
+    <album annee="2018" reference="hash1">
+        <titre>Love Yourself: Sahara</titre>
+        <ref-artiste ref="a02"/>
+        <chansons>
+            <chanson>Fake Love (Habibi Version)</chanson>
+            <chanson>DNA (Darija Remix)</chanson>
+        </chansons>
+    </album>
+    <album annee="2020" reference="bina1">
+        <titre>Map of the Soul: Maghreb</titre>
+        <ref-artiste ref="a04"/>
+        <chansons>
+            <chanson>Black Swan (Rai Version)</chanson>
+            <chanson>ON (With The Shepherds)</chanson>            
+        </chansons>
+    </album>
+    <album annee="2022" reference="bts7">
+        <titre>Proof of Algeria</titre>
+        <ref-artiste ref="a05"/>
+        <chansons>
+            <chanson>Yet To Come (To Algiers)</chanson>
+            <chanson>Run BTS (Through The Casbah)</chanson>
+        </chansons>
+    </album>
+</CD>

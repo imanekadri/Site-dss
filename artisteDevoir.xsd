@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CD">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="artiste" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="site">
+                                <xs:complexType>
+                                    <xs:attribute name="url" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="biographie" type="xs:string" />
+                            <xs:element name="img">
+                                <xs:complexType>
+                                    <xs:attribute name="src" use="required" />
+                                    <xs:attribute name="alt" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="no" use="required" />
+                        <xs:attribute name="nom" use="required" />
+                        <xs:attribute name="ville" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="album" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titre" type="xs:string" />
+                            <xs:element name="ref-artiste">
+                                <xs:complexType>
+                                    <xs:attribute name="ref" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="chansons">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="chanson" maxOccurs="unbounded"
+                                            type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="annee" type="xs:integer" use="required" />
+                        <xs:attribute name="reference" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="nom" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

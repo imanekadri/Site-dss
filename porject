@@ -1,0 +1,163 @@
+from xml.dom import minidom
+from xml.dom.minidom import parse
+
+# Parse the XML file
+dom = parse('artisteDevoir.xml')
+
+# Create the HTML file
+with open('BTS_Artistes.html', 'w', encoding='utf-8') as fichier:
+    # Write HTML header with BTS-themed styling
+    fichier.write('''<!doctype html>
+<html>
+<head>
+    <title>BTS Algerian Fusion</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+        .artist-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+        }
+        .artist-name {
+            color: #ff1493;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .artist-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .artist-image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #6a11cb;
+        }
+        .artist-info {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .artist-site a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .album-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        .album-table th {
+            background-color: #6a11cb;
+            padding: 12px;
+            text-align: center;
+        }
+        .album-table td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        .separator {
+            border: 1px dashed #ff1493;
+            margin: 40px 100px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px dashed #6a11cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: white; font-size: 36px;">BTS × Algerian Music Fusion</h1>
+        <p style="font-size: 18px;">When K-Pop meets North African rhythms</p>
+    </div>
+''')
+
+    # Get all artists and albums
+    artists = dom.getElementsByTagName("artiste")
+    albums = dom.getElementsByTagName("album")
+
+    # Process each artist
+    for artist in artists:
+        nom = artist.getAttribute('nom')
+        ville = artist.getAttribute('ville')
+        img_src = artist.getElementsByTagName('img')[0].getAttribute('src')
+        img_alt = artist.getElementsByTagName('img')[0].getAttribute('alt')
+        site = artist.getElementsByTagName('site')[0].getAttribute('url')
+        bio = artist.getElementsByTagName('biographie')[0].firstChild.nodeValue
+        ref = artist.getAttribute('no')
+
+        # Write artist card
+        fichier.write(f'''
+    <div class="artist-card">
+        <h2 class="artist-name">{nom}</h2>
+        <div class="artist-info">From: {ville}</div>
+        <div class="artist-image">
+            <img src="{img_src}" alt="{img_alt}"/>
+        </div>
+        <div class="artist-info">{bio}</div>
+        <div class="artist-info artist-site">Official Site: <a href="{site}">{site}</a></div>
+        <h3 style="text-align: center; color: #ff1493; margin: 25px 0 15px;">Albums</h3>
+        <table class="album-table">
+''')
+        # Find and write albums for this artist
+        for album in albums:
+            if album.getElementsByTagName('ref-artiste')[0].getAttribute('ref') == ref:
+                titre = album.getElementsByTagName('titre')[0].firstChild.nodeValue
+                annee = album.getAttribute('annee')
+                
+                fichier.write(f'''            <tr>
+                <th colspan="2">{titre} ({annee})</th>
+            </tr>
+            <tr>
+                <td style="font-weight: bold; color: #ff1493;">Songs</td>
+                <td>
+''')
+
+                # Write all songs
+                songs = album.getElementsByTagName('chanson')
+                for i, song in enumerate(songs):
+                    c = song.firstChild.nodeValue
+                    if i > 0:
+                        fichier.write('<br/>')
+                    fichier.write(f'• {c}')
+                
+                fichier.write('''
+                </td>
+            </tr>
+''')
+
+        fichier.write('''        </table>
+    </div>
+    <hr class="separator"/>
+''')
+
+    # Write footer
+    fichier.write('''    <div class="footer">
+        <p>This page was created by OUARAS KHELIL RAFIK | Group: 01</p>
+    </div>
+</body>
+</html>
+''')
+
+print("HTML file generated successfully: BTS_Artistes.html")
