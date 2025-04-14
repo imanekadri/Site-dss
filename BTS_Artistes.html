@@ -17,6 +17,18 @@
             margin-bottom: 40px;
             border-radius: 10px;
         }
+        .search-container {
+            margin: 20px auto;
+            width: 60%;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
         .artist-card {
             background-color: #1a1a1a;
             border-radius: 10px;
@@ -75,15 +87,30 @@
             margin-top: 40px;
             border-top: 2px dashed #6a11cb;
         }
+        .no-results {
+            text-align: center;
+            color: #ff1493;
+            font-size: 24px;
+            padding: 40px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1 style="color: white; font-size: 36px;">BTS × Algerian Music Fusion</h1>
         <p style="font-size: 18px;">When K-Pop meets North African rhythms</p>
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for an artist..." id="searchInput">
+        </div>
     </div>
 
-    <div class="artist-card">
+    <div class="no-results" id="noResults">
+        No artists found matching your search.
+    </div>
+
+    <div class="artist-card" data-artist="RM">
         <h2 class="artist-name">RM</h2>
         <div class="artist-info">From: Seoul</div>
         <div class="artist-image">
@@ -106,7 +133,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="Jin">
         <h2 class="artist-name">Jin</h2>
         <div class="artist-info">From: Busan</div>
         <div class="artist-image">
@@ -129,7 +156,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="SUGA">
         <h2 class="artist-name">SUGA</h2>
         <div class="artist-info">From: Daegu</div>
         <div class="artist-image">
@@ -152,7 +179,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="j-hope">
         <h2 class="artist-name">j-hope</h2>
         <div class="artist-info">From: Gwangju</div>
         <div class="artist-image">
@@ -175,7 +202,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="Jimin">
         <h2 class="artist-name">Jimin</h2>
         <div class="artist-info">From: Jeonju</div>
         <div class="artist-image">
@@ -198,7 +225,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="V">
         <h2 class="artist-name">V</h2>
         <div class="artist-info">From: Daejeon</div>
         <div class="artist-image">
@@ -212,7 +239,7 @@
     </div>
     <hr class="separator"/>
 
-    <div class="artist-card">
+    <div class="artist-card" data-artist="Jung Kook">
         <h2 class="artist-name">Jung Kook</h2>
         <div class="artist-info">From: Ulsan</div>
         <div class="artist-image">
@@ -228,5 +255,7 @@
     <div class="footer">
         <p>This page was created by KADRI IMANE and ARKOUB SARA | Group: 04 / SI </p>
     </div>
+
+   
 </body>
 </html>
